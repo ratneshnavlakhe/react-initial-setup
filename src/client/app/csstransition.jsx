@@ -12,7 +12,7 @@ class CssTransition extends React.Component {
     this.setState({ items: newItems });
   }
 
-  handleRemove () {
+  handleRemove (i) {
     var newItems = this.state.items;
     newItems.splice(i, 1);
     this.setState({ items: newItems });
@@ -29,7 +29,7 @@ class CssTransition extends React.Component {
     return (
       <div>
         <button onClick={this.handleAdd.bind(this)}>Add Item</button>
-        <ReactCSSTransitionGroup transitionName="example">
+        <ReactCSSTransitionGroup transitionName="example" transitionEnterTimeout={1000} transitionLeaveTimeout={1000}>
           {items}
         </ReactCSSTransitionGroup>
       </div>

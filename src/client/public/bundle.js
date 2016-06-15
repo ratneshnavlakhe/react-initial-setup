@@ -57,9 +57,9 @@
 	
 	var _reactDom = __webpack_require__(/*! react-dom */ 38);
 	
-	var _CssTransition = __webpack_require__(/*! ./CssTransition.jsx */ 168);
+	var _csstransition = __webpack_require__(/*! ./csstransition.jsx */ 169);
 	
-	var _CssTransition2 = _interopRequireDefault(_CssTransition);
+	var _csstransition2 = _interopRequireDefault(_csstransition);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -82,9 +82,14 @@
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'p',
+	        'div',
 	        null,
-	        ' Hello React this is a webpack! '
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          ' Hello React this is a webpack! '
+	        ),
+	        _react2.default.createElement(_csstransition2.default, null)
 	      );
 	    }
 	  }]);
@@ -20889,9 +20894,10 @@
 	module.exports = ReactMount.renderSubtreeIntoContainer;
 
 /***/ },
-/* 168 */
+/* 168 */,
+/* 169 */
 /*!******************************************!*\
-  !*** ./src/client/app/CssTransition.jsx ***!
+  !*** ./src/client/app/csstransition.jsx ***!
   \******************************************/
 /***/ function(module, exports, __webpack_require__) {
 
@@ -20907,7 +20913,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactAddonsCssTransitionGroup = __webpack_require__(/*! react-addons-css-transition-group */ 169);
+	var _reactAddonsCssTransitionGroup = __webpack_require__(/*! react-addons-css-transition-group */ 170);
 	
 	var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
 	
@@ -20939,7 +20945,7 @@
 	    }
 	  }, {
 	    key: 'handleRemove',
-	    value: function handleRemove() {
+	    value: function handleRemove(i) {
 	      var newItems = this.state.items;
 	      newItems.splice(i, 1);
 	      this.setState({ items: newItems });
@@ -20964,7 +20970,7 @@
 	        ),
 	        _react2.default.createElement(
 	          _reactAddonsCssTransitionGroup2.default,
-	          { transitionName: 'example' },
+	          { transitionName: 'example', transitionEnterTimeout: 1000, transitionLeaveTimeout: 1000 },
 	          items
 	        )
 	      );
@@ -20977,16 +20983,16 @@
 	exports.default = CssTransition;
 
 /***/ },
-/* 169 */
+/* 170 */
 /*!******************************************************!*\
   !*** ./~/react-addons-css-transition-group/index.js ***!
   \******************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(/*! react/lib/ReactCSSTransitionGroup */ 170);
+	module.exports = __webpack_require__(/*! react/lib/ReactCSSTransitionGroup */ 171);
 
 /***/ },
-/* 170 */
+/* 171 */
 /*!************************************************!*\
   !*** ./~/react/lib/ReactCSSTransitionGroup.js ***!
   \************************************************/
@@ -21009,8 +21015,8 @@
 	
 	var React = __webpack_require__(/*! ./React */ 2);
 	
-	var ReactTransitionGroup = __webpack_require__(/*! ./ReactTransitionGroup */ 171);
-	var ReactCSSTransitionGroupChild = __webpack_require__(/*! ./ReactCSSTransitionGroupChild */ 173);
+	var ReactTransitionGroup = __webpack_require__(/*! ./ReactTransitionGroup */ 172);
+	var ReactCSSTransitionGroupChild = __webpack_require__(/*! ./ReactCSSTransitionGroupChild */ 174);
 	
 	function createTransitionTimeoutPropValidator(transitionType) {
 	  var timeoutPropName = 'transition' + transitionType + 'Timeout';
@@ -21081,7 +21087,7 @@
 	module.exports = ReactCSSTransitionGroup;
 
 /***/ },
-/* 171 */
+/* 172 */
 /*!*********************************************!*\
   !*** ./~/react/lib/ReactTransitionGroup.js ***!
   \*********************************************/
@@ -21103,7 +21109,7 @@
 	var _assign = __webpack_require__(/*! object-assign */ 4);
 	
 	var React = __webpack_require__(/*! ./React */ 2);
-	var ReactTransitionChildMapping = __webpack_require__(/*! ./ReactTransitionChildMapping */ 172);
+	var ReactTransitionChildMapping = __webpack_require__(/*! ./ReactTransitionChildMapping */ 173);
 	
 	var emptyFunction = __webpack_require__(/*! fbjs/lib/emptyFunction */ 11);
 	
@@ -21300,7 +21306,7 @@
 	module.exports = ReactTransitionGroup;
 
 /***/ },
-/* 172 */
+/* 173 */
 /*!****************************************************!*\
   !*** ./~/react/lib/ReactTransitionChildMapping.js ***!
   \****************************************************/
@@ -21405,7 +21411,7 @@
 	module.exports = ReactTransitionChildMapping;
 
 /***/ },
-/* 173 */
+/* 174 */
 /*!*****************************************************!*\
   !*** ./~/react/lib/ReactCSSTransitionGroupChild.js ***!
   \*****************************************************/
@@ -21427,8 +21433,8 @@
 	var React = __webpack_require__(/*! ./React */ 2);
 	var ReactDOM = __webpack_require__(/*! ./ReactDOM */ 39);
 	
-	var CSSCore = __webpack_require__(/*! fbjs/lib/CSSCore */ 174);
-	var ReactTransitionEvents = __webpack_require__(/*! ./ReactTransitionEvents */ 175);
+	var CSSCore = __webpack_require__(/*! fbjs/lib/CSSCore */ 175);
+	var ReactTransitionEvents = __webpack_require__(/*! ./ReactTransitionEvents */ 176);
 	
 	var onlyChild = __webpack_require__(/*! ./onlyChild */ 37);
 	
@@ -21573,7 +21579,7 @@
 	module.exports = ReactCSSTransitionGroupChild;
 
 /***/ },
-/* 174 */
+/* 175 */
 /*!*******************************!*\
   !*** ./~/fbjs/lib/CSSCore.js ***!
   \*******************************/
@@ -21703,7 +21709,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
 
 /***/ },
-/* 175 */
+/* 176 */
 /*!**********************************************!*\
   !*** ./~/react/lib/ReactTransitionEvents.js ***!
   \**********************************************/
