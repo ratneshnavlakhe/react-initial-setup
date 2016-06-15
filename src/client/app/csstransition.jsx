@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import styles from './csstransition.css';
 
 class CssTransition extends React.Component {
   constructor(props) {
@@ -19,9 +20,12 @@ class CssTransition extends React.Component {
   }
 
   render() {
+    var style = {
+
+    };
     var items = this.state.items.map(function (item, i) {
       return (
-        <div key={item} onClick={this.handleRemove.bind(this, i)}>
+        <div key={item} className={styles.div} onClick={this.handleRemove.bind(this, i)}>
           {item}
         </div>
       )
@@ -29,7 +33,7 @@ class CssTransition extends React.Component {
     return (
       <div>
         <button onClick={this.handleAdd.bind(this)}>Add Item</button>
-        <ReactCSSTransitionGroup transitionName="example" transitionEnterTimeout={1000} transitionLeaveTimeout={1000}>
+        <ReactCSSTransitionGroup transitionName={styles} transitionEnterTimeout={1000} transitionLeaveTimeout={1000}>
           {items}
         </ReactCSSTransitionGroup>
       </div>
